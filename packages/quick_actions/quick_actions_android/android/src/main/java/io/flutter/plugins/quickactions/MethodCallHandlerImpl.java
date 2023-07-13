@@ -124,6 +124,7 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
       final String icon = shortcut.get("icon");
       final String type = shortcut.get("type");
       final String title = shortcut.get("localizedTitle");
+      final String subtitle = shortcut.get("localizedSubtitle");
       final ShortcutInfo.Builder shortcutBuilder = new ShortcutInfo.Builder(context, type);
 
       final int resourceId = loadResourceId(context, icon);
@@ -133,8 +134,13 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
         shortcutBuilder.setIcon(Icon.createWithResource(context, resourceId));
       }
 
+      String longLabel = title;
+      if(subtitle != null) {
+        longLabel += " - " + subtitle;
+      }
+
       final ShortcutInfo shortcutInfo =
-          shortcutBuilder.setLongLabel(title).setShortLabel(title).setIntent(intent).build();
+          shortcutBuilder.setLongLabel(longLabel).setShortLabel(title).setIntent(intent).build();
       shortcutInfos.add(shortcutInfo);
     }
     return shortcutInfos;
