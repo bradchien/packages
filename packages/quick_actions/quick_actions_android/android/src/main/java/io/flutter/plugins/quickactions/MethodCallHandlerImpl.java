@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+import android.net.Uri;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
@@ -169,8 +170,8 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     return context
         .getPackageManager()
         .getLaunchIntentForPackage(packageName)
-        .setAction(Intent.ACTION_RUN)
-        .putExtra(EXTRA_ACTION, type)
+        .setAction(Intent.ACTION_VIEW)
+        .setData(Uri.parse(type))
         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
   }
