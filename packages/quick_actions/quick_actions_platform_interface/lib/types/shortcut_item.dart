@@ -5,12 +5,13 @@
 /// Home screen quick-action shortcut item.
 class ShortcutItem {
   /// Constructs an instance with the given [type], [localizedTitle], and
-  /// [icon].
+  /// [localizedSubtitle], [icon].
   ///
   /// Only [icon] should be nullable. It will remain `null` if unset.
   const ShortcutItem({
     required this.type,
     required this.localizedTitle,
+    this.localizedSubtitle,
     this.icon,
   });
 
@@ -19,6 +20,9 @@ class ShortcutItem {
 
   /// Localized title of the item.
   final String localizedTitle;
+
+  /// Localized subtitle of the item.
+  final String? localizedSubtitle;
 
   /// Name of native resource (xcassets etc; NOT a Flutter asset) to be
   /// displayed as the icon for this item.
