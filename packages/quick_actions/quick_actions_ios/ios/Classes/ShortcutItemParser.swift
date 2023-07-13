@@ -26,7 +26,7 @@ final class DefaultShortcutItemParser: ShortcutItemParser {
   {
     guard
       let type = serialized["type"] as? String,
-      let localizedTitle = serialized["localizedTitle"] as? String,
+      let localizedTitle = serialized["localizedTitle"] as? String
     else {
       return nil
     }
