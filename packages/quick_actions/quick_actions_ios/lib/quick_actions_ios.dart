@@ -50,6 +50,7 @@ class QuickActionsIos extends QuickActionsPlatform {
     return <String, String?>{
       'type': item.type,
       'localizedTitle': item.localizedTitle,
+      'localizedSubtitle': item.localizedSubtitle,
       'icon': item.icon,
     };
   }

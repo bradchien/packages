@@ -26,10 +26,12 @@ final class DefaultShortcutItemParser: ShortcutItemParser {
   {
     guard
       let type = serialized["type"] as? String,
-      let localizedTitle = serialized["localizedTitle"] as? String
+      let localizedTitle = serialized["localizedTitle"] as? String,
     else {
       return nil
     }
+
+    let localizedSubtitle = serialized["localizedSubtitle"] as? String
 
     let icon = (serialized["icon"] as? String).map {
       UIApplicationShortcutIcon(templateImageName: $0)
@@ -39,7 +41,7 @@ final class DefaultShortcutItemParser: ShortcutItemParser {
     return UIApplicationShortcutItem(
       type: type,
       localizedTitle: localizedTitle,
-      localizedSubtitle: nil,
+      localizedSubtitle: localizedSubtitle,
       icon: icon,
       userInfo: nil)
   }
