@@ -1,3 +1,11 @@
+## 2.3.3
+
+* try fix applicationSupportDirectory on tvOS
+
+## 2.3.2
+
+* To support tvOS
+
 ## 2.3.1
 
 * Adds pub topics to package metadata.

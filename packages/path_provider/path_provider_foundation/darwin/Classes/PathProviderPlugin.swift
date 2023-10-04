@@ -4,27 +4,27 @@
 
 import Foundation
 
-#if os(iOS)
-import Flutter
-#elseif os(macOS)
+#if os(macOS)
 import FlutterMacOS
+#else
+import Flutter
 #endif
 
 public class PathProviderPlugin: NSObject, FlutterPlugin, PathProviderApi {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let instance = PathProviderPlugin()
     // Workaround for https://github.com/flutter/flutter/issues/118103.
-#if os(iOS)
-    let messenger = registrar.messenger()
-#else
+#if os(macOS)
     let messenger = registrar.messenger
+#else
+    let messenger = registrar.messenger()
 #endif
     PathProviderApiSetup.setUp(binaryMessenger: messenger, api: instance)
   }
 
   func getDirectoryPath(type: DirectoryType) -> String? {
     var path = getDirectory(ofType: fileManagerDirectoryForType(type))
-  #if os(macOS)
+  #if os(macOS) || os(tvOS)
     // In a non-sandboxed app, these are shared directories where applications are
     // expected to use its bundle ID as a subdirectory. (For non-sandboxed apps,
     // adding the extra path is harmless).
@@ -54,7 +54,11 @@ private func fileManagerDirectoryForType(_ type: DirectoryType) -> FileManager.S
     case .applicationDocuments:
       return FileManager.SearchPathDirectory.documentDirectory
     case .applicationSupport:
+#if os(tvOS)
+	  return FileManager.SearchPathDirectory.cachesDirectory
+#else
       return FileManager.SearchPathDirectory.applicationSupportDirectory
+#endif
     case .downloads:
       return FileManager.SearchPathDirectory.downloadsDirectory
     case .library:

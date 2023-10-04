@@ -1,3 +1,7 @@
+## 2.1.2
+
+* To support tvOS
+
 ## 2.1.1
 
 * Adds pub topics to package metadata.

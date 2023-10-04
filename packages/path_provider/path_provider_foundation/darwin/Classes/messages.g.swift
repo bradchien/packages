@@ -6,12 +6,10 @@
 
 import Foundation
 
-#if os(iOS)
-  import Flutter
-#elseif os(macOS)
+#if os(macOS)
   import FlutterMacOS
 #else
-  #error("Unsupported platform.")
+  import Flutter
 #endif
 
 private func wrapResult(_ result: Any?) -> [Any?] {

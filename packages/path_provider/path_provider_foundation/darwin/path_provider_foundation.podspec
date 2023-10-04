@@ -11,11 +11,13 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation'
   s.license          = { :type => 'BSD', :file => '../LICENSE' }
   s.author           = { 'Flutter Dev Team' => 'flutter-dev@googlegroups.com' }
-  s.source           = { :http => 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation' }
+  s.source           = { :http => 'https://github.com/bradchien/packages/tree/main/packages/path_provider/path_provider_foundation' }
   s.source_files = 'Classes/**/*'
   s.ios.dependency 'Flutter'
+  s.tvos.dependency 'Flutter'
   s.osx.dependency 'FlutterMacOS'
   s.ios.deployment_target = '11.0'
+  s.tvos.deployment_target = '12.0'
   s.osx.deployment_target = '10.14'
   s.ios.xcconfig = {
     'LIBRARY_SEARCH_PATHS' => '$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)/ $(SDKROOT)/usr/lib/swift',
