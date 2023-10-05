@@ -1,3 +1,7 @@
+## 2.3.4
+
+* update podspec version
+
 ## 2.3.3
 
 * try fix applicationSupportDirectory on tvOS

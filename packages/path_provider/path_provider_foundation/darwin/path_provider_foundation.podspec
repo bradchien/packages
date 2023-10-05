@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'path_provider_foundation'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'An iOS and macOS implementation of the path_provider plugin.'
   s.description      = <<-DESC
   An iOS and macOS implementation of the Flutter plugin for getting commonly used locations on the filesystem.
