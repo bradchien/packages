@@ -1,3 +1,7 @@
+## 2.1.3
+
+* fix path provider issue on tvOS
+
 ## 2.1.2
 
 * To support tvOS
