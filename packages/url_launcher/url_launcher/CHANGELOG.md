@@ -1,3 +1,7 @@
+## 6.1.15
+
+* Make library buildable on tvOS
+
 ## 6.1.14
 
 * Updates documentation to mention support for Android Custom Tabs.

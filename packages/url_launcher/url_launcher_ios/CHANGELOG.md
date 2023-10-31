@@ -1,3 +1,7 @@
+## 6.1.6
+
+* Make library buildable on tvOS
+
 ## 6.1.5
 
 * Adds pub topics to package metadata.

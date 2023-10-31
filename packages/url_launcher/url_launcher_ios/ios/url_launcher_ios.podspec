@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'url_launcher_ios'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Flutter plugin for launching a URL.'
   s.description      = <<-DESC
 A Flutter plugin for making the underlying platform (Android or iOS) launch a URL.
@@ -20,6 +20,7 @@ A Flutter plugin for making the underlying platform (Android or iOS) launch a UR
       'LD_RUNPATH_SEARCH_PATHS' => '/usr/lib/swift',
   }
   s.dependency 'Flutter'
-  s.platform = :ios, '11.0'
+  s.platforms = { :ios => "11.0", :tvos => "12.0" }
+
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 end

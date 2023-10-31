@@ -2,13 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#if TARGET_OS_IOS
 #import <SafariServices/SafariServices.h>
+#endif
 
 #import "FLTURLLauncherPlugin.h"
 #import "FLTURLLauncherPlugin_Test.h"
 #import "FULLauncher.h"
 #import "messages.g.h"
 
+#if TARGET_OS_IOS
 typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nullable);
 
 @interface FLTURLLaunchSession : NSObject <SFSafariViewControllerDelegate>
@@ -56,6 +59,7 @@ typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nulla
 }
 
 @end
+#endif
 
 #pragma mark -
 
@@ -80,7 +84,9 @@ typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nulla
 
 @interface FLTURLLauncherPlugin ()
 
+#if TARGET_OS_IOS
 @property(strong, nonatomic) FLTURLLaunchSession *currentSession;
+#endif
 @property(strong, nonatomic) NSObject<FULLauncher> *launcher;
 
 @end
@@ -136,6 +142,8 @@ typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nulla
     completion(nil, [self invalidURLErrorForURLString:urlString]);
     return;
   }
+
+#if TARGET_OS_IOS
   self.currentSession = [[FLTURLLaunchSession alloc] initWithURL:url completion:completion];
   __weak typeof(self) weakSelf = self;
   self.currentSession.didFinish = ^(void) {
@@ -144,10 +152,13 @@ typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nulla
   [self.topViewController presentViewController:self.currentSession.safari
                                        animated:YES
                                      completion:nil];
+#endif
 }
 
 - (void)closeSafariViewControllerWithError:(FlutterError *_Nullable *_Nonnull)error {
+#if TARGET_OS_IOS
   [self.currentSession close];
+#endif
 }
 
 - (UIViewController *)topViewController {
