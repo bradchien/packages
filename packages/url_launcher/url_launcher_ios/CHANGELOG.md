@@ -1,5 +1,9 @@
 ## 6.1.6
 
+* Fix definition issue
+
+## 6.1.6
+
 * Make library buildable on tvOS
 
 ## 6.1.5

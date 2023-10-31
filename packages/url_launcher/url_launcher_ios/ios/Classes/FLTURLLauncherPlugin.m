@@ -11,9 +11,9 @@
 #import "FULLauncher.h"
 #import "messages.g.h"
 
-#if TARGET_OS_IOS
 typedef void (^OpenInSafariVCResponse)(NSNumber *_Nullable, FlutterError *_Nullable);
 
+#if TARGET_OS_IOS
 @interface FLTURLLaunchSession : NSObject <SFSafariViewControllerDelegate>
 
 @property(copy, nonatomic) OpenInSafariVCResponse completion;
