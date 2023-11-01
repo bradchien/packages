@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 #import <Flutter/Flutter.h>
+#if TARGET_OS_IOS
 #import <WebKit/WebKit.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

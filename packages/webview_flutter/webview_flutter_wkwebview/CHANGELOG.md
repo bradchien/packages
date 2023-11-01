@@ -1,3 +1,15 @@
+## 3.9.5
+
+* Fix compile error on tvOS
+
+## 3.9.4
+
+* Fix syntax error
+
+## 3.9.3
+
+* Make library buildable on tvOS
+
 ## 3.9.0
 
 * Adds support for `PlatformWebViewController.getUserAgent`.

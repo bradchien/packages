@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 #import "FLTWebViewFlutterPlugin.h"
+#if TARGET_OS_IOS
 #import "FWFGeneratedWebKitApis.h"
 #import "FWFHTTPCookieStoreHostApi.h"
 #import "FWFInstanceManager.h"
@@ -49,10 +50,12 @@
 }
 
 @end
+#endif
 
 @implementation FLTWebViewFlutterPlugin
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
+#if TARGET_OS_IOS
   FWFInstanceManager *instanceManager =
       [[FWFInstanceManager alloc] initWithDeallocCallback:^(long identifier) {
         FWFObjectFlutterApiImpl *objectApi = [[FWFObjectFlutterApiImpl alloc]
@@ -110,7 +113,21 @@
 
   // InstanceManager is published so that a strong reference is maintained.
   [registrar publish:instanceManager];
+#else
+	FlutterMethodChannel *channel =
+			[FlutterMethodChannel methodChannelWithName:@"plugins.flutter.io/webview"
+			                            binaryMessenger:[registrar messenger]];
+	FLTWebViewFlutterPlugin *instance = [[FLTWebViewFlutterPlugin alloc] init];
+	[registrar addMethodCallDelegate:instance channel:channel];
+#endif
 }
+
+#ifndef TARGET_OS_IOS
+- (void)handleMethodCall:(FlutterMethodCall *)call
+                  result:(FlutterResult)result {
+	result(nil);
+}
+#endif
 
 - (void)detachFromEngineForRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
   [registrar publish:[NSNull null]];

@@ -1,3 +1,15 @@
+## 4.4.4
+
+* Fix compile issue on tvOS
+
+## 4.4.3
+
+* Fix syntax error
+
+## 4.4.2
+
+* Make library buildable on tvOS
+
 ## 4.4.1
 
 * Exposes `JavaScriptLogLevel` from platform interface.

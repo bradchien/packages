@@ -5,6 +5,7 @@
 #import <Foundation/Foundation.h>
 
 #import "FLTWebViewFlutterPlugin.h"
+#if TARGET_OS_IOS
 #import "FWFDataConverters.h"
 #import "FWFGeneratedWebKitApis.h"
 #import "FWFHTTPCookieStoreHostApi.h"
@@ -22,3 +23,4 @@
 #import "FWFWebViewFlutterWKWebViewExternalAPI.h"
 #import "FWFWebViewHostApi.h"
 #import "FWFWebsiteDataStoreHostApi.h"
+#endif

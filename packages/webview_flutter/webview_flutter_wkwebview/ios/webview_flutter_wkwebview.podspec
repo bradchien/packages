@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'webview_flutter_wkwebview'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'A WebView Plugin for Flutter.'
   s.description      = <<-DESC
 A Flutter plugin that provides a WebView widget.
@@ -16,9 +16,11 @@ Downloaded by pub (not CocoaPods).
   s.documentation_url = 'https://pub.dev/packages/webview_flutter'
   s.source_files = 'Classes/**/*.{h,m}'
   s.public_header_files = 'Classes/**/*.h'
+  s.tvos.exclude_files = 'Classes/**/FWF*.{h,m}'
   s.module_map = 'Classes/FlutterWebView.modulemap'
   s.dependency 'Flutter'
 
-  s.platform = :ios, '11.0'
+  s.platforms = { :ios => "11.0", :tvos => "12.0" }
+
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 end
