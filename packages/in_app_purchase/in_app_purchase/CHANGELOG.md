@@ -1,3 +1,7 @@
+## 3.1.11
+
+* To support tvOS
+
 ## 3.1.10
 
 * Updates example code for current versions of Flutter.
