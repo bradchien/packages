@@ -1,3 +1,11 @@
+## 1.0.8
+
+* Fix syntax error
+
+## 1.0.7
+
+* Make library buildable on tvOS
+
 ## 1.0.6
 
 * Adds pub topics to package metadata.

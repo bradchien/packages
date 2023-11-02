@@ -16,6 +16,8 @@ public final class QuickActionsPlugin: NSObject, FlutterPlugin {
   }
 
   private let channel: MethodChannel
+
+#if os(iOS)
   private let shortcutItemProvider: ShortcutItemProviding
   private let shortcutItemParser: ShortcutItemParser
   /// The type of the shortcut item selected when launching the app.
@@ -30,9 +32,17 @@ public final class QuickActionsPlugin: NSObject, FlutterPlugin {
     self.shortcutItemProvider = shortcutItemProvider
     self.shortcutItemParser = shortcutItemParser
   }
+#else
+  init(
+    channel: MethodChannel
+  ) {
+    self.channel = channel
+  }
+#endif
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
+#if os(iOS)
     case "setShortcutItems":
       // `arguments` must be an array of dictionaries
       let items = call.arguments as! [[String: Any]]
@@ -43,11 +53,13 @@ public final class QuickActionsPlugin: NSObject, FlutterPlugin {
       result(nil)
     case "getLaunchAction":
       result(nil)
+#endif
     case _:
       result(FlutterMethodNotImplemented)
     }
   }
 
+#if os(iOS)
   public func application(
     _ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem,
     completionHandler: @escaping (Bool) -> Void
@@ -87,5 +99,5 @@ public final class QuickActionsPlugin: NSObject, FlutterPlugin {
   private func handleShortcut(_ shortcut: String) {
     channel.invokeMethod("launch", arguments: shortcut)
   }
-
+#endif
 }

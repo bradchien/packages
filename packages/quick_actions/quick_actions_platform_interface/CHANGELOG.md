@@ -1,3 +1,7 @@
+## 1.0.6
+
+* add subtitle on quick action items
+
 ## 1.0.5
 
 * Adds pub topics to package metadata.

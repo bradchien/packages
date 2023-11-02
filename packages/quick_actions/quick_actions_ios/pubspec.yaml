@@ -2,7 +2,7 @@ name: quick_actions_ios
 description: An implementation for the iOS platform of the Flutter `quick_actions` plugin.
 repository: https://github.com/flutter/packages/tree/main/packages/quick_actions/quick_actions_ios
 issue_tracker: https://github.com/flutter/flutter/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+in_app_purchase%22
-version: 1.0.7
+version: 1.0.9
 
 environment:
   sdk: ">=2.19.0 <4.0.0"
@@ -19,10 +19,7 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  quick_actions_platform_interface:
-    git:
-      url: git@github.com:bradchien/packages.git
-      path: packages/quick_actions/quick_actions_platform_interface
+  quick_actions_platform_interface: ^1.0.6
 
 dev_dependencies:
   flutter_test:

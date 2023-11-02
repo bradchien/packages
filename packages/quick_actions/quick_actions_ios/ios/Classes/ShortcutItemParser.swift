@@ -4,6 +4,7 @@
 
 import UIKit
 
+#if os(iOS)
 /// A parser that parses an array of raw shortcut items.
 protocol ShortcutItemParser {
 
@@ -46,3 +47,4 @@ final class DefaultShortcutItemParser: ShortcutItemParser {
       userInfo: nil)
   }
 }
+#endif

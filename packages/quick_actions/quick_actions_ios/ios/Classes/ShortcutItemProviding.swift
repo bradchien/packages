@@ -4,6 +4,7 @@
 
 import UIKit
 
+#if os(iOS)
 /// Provides the capability to get and set the app's home screen shortcut items.
 protocol ShortcutItemProviding: AnyObject {
 
@@ -13,3 +14,4 @@ protocol ShortcutItemProviding: AnyObject {
 
 /// A default implementation of the `ShortcutItemProviding` protocol.
 extension UIApplication: ShortcutItemProviding {}
+#endif
